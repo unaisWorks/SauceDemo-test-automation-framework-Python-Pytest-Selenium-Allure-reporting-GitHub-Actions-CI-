@@ -21,4 +21,10 @@ def logged_in_user(driver):
     login_page.login("standard_user", "secret_sauce")
     return InventoryPage(driver)
 
+@pytest.fixture(scope="function")
+def login_page(driver):
+    login_page = LoginPage(driver)
+    login_page.open()
+    return login_page
+
 
