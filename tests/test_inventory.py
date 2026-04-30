@@ -1,6 +1,3 @@
-from pages.inventory_page import InventoryPage
-from pages.login_page import LoginPage
-import pytest
 
 def test_page_title(logged_in_user):
     assert logged_in_user.get_page_title() == "Products"
