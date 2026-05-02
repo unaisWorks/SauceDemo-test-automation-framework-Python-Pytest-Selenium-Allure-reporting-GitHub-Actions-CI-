@@ -4,7 +4,7 @@ def test_page_title(logged_in_user):
 
 def test_add_single_item_to_cart(logged_in_user):
     logged_in_user.add_to_cart()
-    assert logged_in_user.get_cart_count() == "1"
+    assert logged_in_user.get_cart_count() == "2"
 
 def test_remove_item_from_cart(logged_in_user):
     logged_in_user.add_to_cart()

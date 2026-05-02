@@ -31,6 +31,8 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     report = outcome.get_result()
 
+    extra = getattr(report, "extra", [])
+
     if report.when == "call" and report.failed:
 
         driver = item.funcargs.get("driver") or \
@@ -47,3 +49,12 @@ def pytest_runtest_makereport(item, call):
             file_path = os.path.join(SCREENSHOT_DIR, file_name)
 
             driver.save_screenshot(file_path)
+
+            #Attach screenshot to report
+            try:
+                import pytest_html
+                extra.append(pytest_html.extras.image(file_path))
+            except Exception:
+                pass
+
+            report.extra = extra
