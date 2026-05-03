@@ -3,8 +3,10 @@ def test_page_title(logged_in_user):
     assert logged_in_user.get_page_title() == "Products"
 
 def test_add_single_item_to_cart(logged_in_user):
+    before = logged_in_user.get_cart_count() if logged_in_user.is_cart_badge_displayed() else "0"
     logged_in_user.add_to_cart()
-    assert logged_in_user.get_cart_count() == "2"
+    after = logged_in_user.get_cart_count()
+    assert int(after) == int(before) + 1
 
 def test_remove_item_from_cart(logged_in_user):
     logged_in_user.add_to_cart()

@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
 
@@ -24,15 +25,16 @@ class InventoryPage(BasePage):
 
     def add_to_cart(self):
         self.click(self.ADD_CART_BUTTON)
+        self.wait.until(EC.presence_of_element_located(self.CART_COUNT_BADGE))
 
     def get_cart_count(self):
-        return self.get_text(self.CART_COUNT_BADGE)
+        try:
+            return self.get_text(self.CART_COUNT_BADGE)
+        except:
+            return "0"
 
     def remove_item_from_cart(self):
         self.click(self.REMOVE_ITEM_BUTTON)
-
-    def get_cart_count(self):
-        return self.get_text(self.CART_COUNT_BADGE)
 
     def is_cart_badge_displayed(self):
         try:
