@@ -7,6 +7,9 @@ def test_add_single_item_to_cart(logged_in_user):
     logged_in_user.add_to_cart()
     after = logged_in_user.get_cart_count()
     assert int(after) == int(before) + 1
+    # Verify correct item name
+    cart = logged_in_user.click_cart_icon()
+    assert cart.get_added_item_name() == "Sauce Labs Backpack"
 
 def test_remove_item_from_cart(logged_in_user):
     logged_in_user.add_to_cart()
