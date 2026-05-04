@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
-
 from pages.base_page import BasePage
+from utils.logger import get_logger
 
+logger = get_logger(__name__)
 class CartPage(BasePage):
 
     #locators
@@ -11,22 +12,30 @@ class CartPage(BasePage):
     REMOVE_BUTTON = (By.CSS_SELECTOR, "button[id^='remove-']")
 
     def get_page_title(self):
+        logger.info("Fetching cart page title")
         return self.get_text(self.PAGE_TITLE)
 
     def get_added_item_name(self):
+        logger.info("Fetching added item name to the cart")
         return self.get_text(self.CART_ITEM)
 
+    def get_added_item_names(self):
+        logger.info("Fetching all item names in cart")
+        elements = self.driver.find_elements(*self.CART_ITEM)
+        return [el.text for el in elements]
+
     def remove_from_cart(self):
+        logger.info("Removing item from cart")
         self.click(self.REMOVE_BUTTON)
+        self.wait.until(lambda d: len(d.find_elements(*self.CART_ITEM)) == 0)
 
     def continue_shopping(self):
+        logger.info("Navigating to Products page by clicking continue shopping button")
         self.click(self.CONTINUE_SHOPPING_BUTTON)
         from pages.inventory_page import InventoryPage
         return InventoryPage(self.driver)
 
     def is_cart_empty(self):
-        try:
-            self.find_element(self.CART_ITEM)
-            return False
-        except Exception:
-            return True
+        logger.info("Checking if cart is empty")
+        elements = self.driver.find_elements(*self.CART_ITEM)
+        return len(elements) == 0
