@@ -9,6 +9,18 @@ class BasePage:
     def find_element(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator))
 
+    def find_elements(self, locator):
+        return self.driver.find_elements(*locator)
+
+    def is_element_visible(self, locator):
+        try:
+            return self.find_element(locator).is_displayed()
+        except:
+            return False
+
+    def wait_for_element_to_disappear(self, locator):
+        self.wait.until(EC.invisibility_of_element(locator))
+
     def click(self, locator):
         self.wait.until(EC.element_to_be_clickable(locator)).click()
 
