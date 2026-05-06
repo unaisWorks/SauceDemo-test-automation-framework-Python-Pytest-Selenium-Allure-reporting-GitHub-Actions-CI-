@@ -36,8 +36,9 @@ def test_successful_login(login_page):
     ],
 )
 
-def test_invalid_login(login_page,username,password,expected_error):
-    login_page.login(username,password)
+def test_invalid_login(login_page, username, password, expected_error):
+    login_page.open()   # ✅ RESET PAGE EVERY ITERATION
+    login_page.login(username, password)
     error_message = login_page.get_error_message()
     assert error_message == expected_error
 

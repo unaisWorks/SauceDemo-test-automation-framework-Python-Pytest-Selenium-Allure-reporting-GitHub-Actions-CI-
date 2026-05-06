@@ -1,5 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 
 class BasePage:
     def __init__(self, driver):
@@ -15,11 +16,11 @@ class BasePage:
     def is_element_visible(self, locator):
         try:
             return self.find_element(locator).is_displayed()
-        except:
+        except TimeoutException:
             return False
 
     def wait_for_element_to_disappear(self, locator):
-        self.wait.until(EC.invisibility_of_element(locator))
+        self.wait.until(EC.invisibility_of_element_located(locator))
 
     def click(self, locator):
         self.wait.until(EC.element_to_be_clickable(locator)).click()
