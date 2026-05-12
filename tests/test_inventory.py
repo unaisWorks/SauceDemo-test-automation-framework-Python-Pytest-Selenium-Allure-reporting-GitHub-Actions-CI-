@@ -4,6 +4,11 @@ from coverage.files import actual_path
 def test_page_title(logged_in_user):
     assert logged_in_user.get_page_title() == "Products"
 
+    def test_add_to_cart_button_enabled(logged_in_user):
+        assert logged_in_user.is_element_enabled(
+            logged_in_user.ADD_TO_CART_BUTTON
+        )
+
 def test_add_single_item_to_cart(logged_in_user):
     before = logged_in_user.get_cart_count() if logged_in_user.is_cart_badge_displayed() else "0"
     logged_in_user.add_to_cart()
