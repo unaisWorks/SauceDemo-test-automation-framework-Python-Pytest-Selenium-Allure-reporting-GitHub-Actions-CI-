@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from pages.login_page import LoginPage
 from selenium.webdriver.chrome.options import Options
+from config.config import USERNAME, PASSWORD
 
 import os
 from datetime import datetime
@@ -24,7 +25,7 @@ def login_page(driver):
 
 @pytest.fixture
 def logged_in_user(login_page):
-    return login_page.login("standard_user", "secret_sauce")
+    return login_page.login(USERNAME,PASSWORD)
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
