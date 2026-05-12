@@ -1,9 +1,8 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from utils.logger import get_logger
-from config.config import BASE_URL,USERNAME,PASSWORD
+from config.config import BASE_URL
 from selenium.webdriver.support import expected_conditions as EC
-from config.config import TIMEOUT
 
 logger = get_logger(__name__)
 class LoginPage(BasePage):
@@ -19,8 +18,8 @@ class LoginPage(BasePage):
         self.driver.get(BASE_URL)
 
     def login(self, username, password):
-        self.find_element(self.USER_NAME_FIELD).clear()
-        self.find_element(self.PASSWORD_FIELD).clear()
+        self.clear_field(self.USER_NAME_FIELD)
+        self.clear_field(self.PASSWORD_FIELD)
 
         self.enter_text(self.USER_NAME_FIELD, username)
         self.enter_text(self.PASSWORD_FIELD, password)

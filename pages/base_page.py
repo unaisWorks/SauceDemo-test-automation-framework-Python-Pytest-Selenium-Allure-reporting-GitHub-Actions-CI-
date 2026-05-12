@@ -7,6 +7,9 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
+    def get_current_url(self):
+        return self.driver.current_url
+
     def find_element(self, locator):
         return self.wait.until(EC.visibility_of_element_located(locator))
 
@@ -47,3 +50,5 @@ class BasePage:
         elements = self.find_elements(locator)
         return [el.text for el in elements]
 
+    def clear_field(self, locator):
+        self.find_element(locator).clear()

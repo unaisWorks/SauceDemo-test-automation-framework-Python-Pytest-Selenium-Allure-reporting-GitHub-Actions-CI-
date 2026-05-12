@@ -11,8 +11,8 @@ class InventoryPage(BasePage):
 
     #Locators
     PAGE_TITLE = (By.CLASS_NAME, "title")
-    ADD_CART_BUTTON = (By.ID, "add-to-cart-sauce-labs-backpack")
-    REMOVE_ITEM_BUTTON = (By.ID, "remove-sauce-labs-backpack")
+    ADD_TO_CART_BUTTON = (By.ID, "add-to-cart-sauce-labs-backpack")
+    REMOVE_FROM_CART_BUTTON = (By.ID, "remove-sauce-labs-backpack")
 
     CART_ICON = (By.CSS_SELECTOR, "a.shopping_cart_link")
     CART_COUNT_BADGE = (By.CSS_SELECTOR,  "span.shopping_cart_badge")
@@ -28,8 +28,8 @@ class InventoryPage(BasePage):
         return self.get_text(self.PAGE_TITLE)
 
     def add_to_cart(self):
-        logger.info("adding item to cart")
-        self.click(self.ADD_CART_BUTTON)
+        logger.info("Adding item to cart")
+        self.click(self.ADD_TO_CART_BUTTON)
         self.wait.until(EC.presence_of_element_located(self.CART_COUNT_BADGE))
 
     def get_cart_count(self):
