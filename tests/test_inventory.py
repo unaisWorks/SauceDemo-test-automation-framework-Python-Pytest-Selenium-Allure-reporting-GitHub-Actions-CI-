@@ -1,3 +1,5 @@
+from coverage.files import actual_path
+
 
 def test_page_title(logged_in_user):
     assert logged_in_user.get_page_title() == "Products"
@@ -20,19 +22,23 @@ def test_logout(logged_in_user):
     login_page = logged_in_user.logout_account()
     assert login_page.driver.title == "Swag Labs"
 
-
 def test_filter_price_low_to_high(logged_in_user):
-    logged_in_user.sort_products("lohi")  # ✅ Sort first
-    assert logged_in_user.get_current_sort_value() == "lohi"
+    logged_in_user.sort_products("lohi")
+
+    actual = logged_in_user.get_product_prices()
+    assert actual == sorted(actual)
 
 def test_filter_price_high_to_low(logged_in_user):
-    logged_in_user.sort_products("hilo")  # ✅ Sort first
-    assert logged_in_user.get_current_sort_value() == "hilo"
+    logged_in_user.sort_products("hilo")
+
+    actual = logged_in_user.get_product_prices()
+    assert actual == sorted(actual, reverse=True)
 
 def test_filter_price_A_to_Z(logged_in_user):
-    logged_in_user.sort_products("az")  # ✅ Sort first
+    logged_in_user.sort_products("az")
     assert logged_in_user.get_current_sort_value() == "az"
 
 def test_filter_price_Z_to_A(logged_in_user):
-    logged_in_user.sort_products("za")  # ✅ Sort first
+    logged_in_user.sort_products("za")
     assert logged_in_user.get_current_sort_value() == "za"
+

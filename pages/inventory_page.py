@@ -1,3 +1,4 @@
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
@@ -35,7 +36,7 @@ class InventoryPage(BasePage):
         logger.info("Fetching cart count")
         try:
             return self.get_text(self.CART_COUNT_BADGE)
-        except:
+        except TimeoutException:
             return "0"
 
     def remove_item_from_cart(self):
@@ -79,3 +80,11 @@ class InventoryPage(BasePage):
         """Get currently selected sort option"""
         dropdown = Select(self.find_element(self.SORT_DROPDOWN))
         return dropdown.first_selected_option.get_attribute("value")
+
+    def get_product_prices(self):
+        prices = self.find_elements(self.PRODUCT_PRICES)
+
+        return[
+            float(price.text.replace("$", ""))
+            for price in prices
+        ]
