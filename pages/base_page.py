@@ -25,7 +25,6 @@ class BasePage:
     def click(self, locator):
         self.wait.until(EC.element_to_be_clickable(locator)).click()
 
-
     def enter_text(self, locator, text):
         element = self.find_element(locator)
         element.clear()
@@ -34,5 +33,17 @@ class BasePage:
     def get_text(self, locator):
         return self.find_element(locator).text
 
+    def wait_for_visibility(self, locator):
+        return self.wait.until(
+            EC.visibility_of_element_located(locator)
+        )
 
+    def wait_for_clickable(self, locator):
+        return self.wait.until(
+            EC.element_to_be_clickable(locator)
+        )
+
+    def get_elements_text(self, locator):
+        elements = self.find_elements(locator)
+        return [el.text for el in elements]
 
