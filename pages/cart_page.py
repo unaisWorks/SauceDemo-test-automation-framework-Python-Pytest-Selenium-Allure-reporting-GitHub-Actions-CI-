@@ -1,3 +1,5 @@
+from selenium.webdriver.support import expected_conditions as EC
+
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from utils.logger import get_logger
@@ -9,7 +11,7 @@ class CartPage(BasePage):
     PAGE_TITLE = (By.CLASS_NAME, "title")
     CONTINUE_SHOPPING_BUTTON = (By.ID, "continue-shopping")
     CART_ITEM = (By.CSS_SELECTOR, "div.inventory_item_name")
-    REMOVE_BUTTON = (By.CSS_SELECTOR, "button[id^='remove-']")
+    REMOVE_ITEM_BUTTON = (By.CSS_SELECTOR, "button[id^='remove-']")
 
     def get_page_title(self):
         logger.info("Fetching cart page title")
@@ -24,10 +26,12 @@ class CartPage(BasePage):
         elements = self.driver.find_elements(*self.CART_ITEM)
         return [el.text for el in elements]
 
-    def remove_from_cart(self):
+    def remove_item_from_cart(self):
         logger.info("Removing item from cart")
-        self.click(self.REMOVE_BUTTON)
-        self.wait.until(lambda d: len(d.find_elements(*self.CART_ITEM)) == 0)
+
+        self.wait.until(
+            EC.element_to_be_clickable(self.REMOVE_ITEM_BUTTON)
+        ).click()
 
     def continue_shopping(self):
         logger.info("Navigating to Products page by clicking continue shopping button")

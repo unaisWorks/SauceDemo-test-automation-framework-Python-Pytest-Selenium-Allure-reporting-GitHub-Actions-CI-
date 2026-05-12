@@ -18,7 +18,7 @@ def test_item_remove_from_cart(logged_in_user):
     logged_in_user.add_to_cart()
     cart = logged_in_user.click_cart_icon()
 
-    cart.remove_from_cart()
+    cart.remove_item_from_cart()
 
     assert cart.is_cart_empty()
 

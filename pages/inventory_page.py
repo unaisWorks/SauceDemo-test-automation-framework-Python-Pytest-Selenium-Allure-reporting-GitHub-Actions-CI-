@@ -2,6 +2,8 @@ from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
+
+from tests.conftest import logged_in_user
 from utils.logger import get_logger
 from pages.base_page import BasePage
 
@@ -41,7 +43,7 @@ class InventoryPage(BasePage):
 
     def remove_item_from_cart(self):
         logger.info("removing item from cart")
-        self.click(self.REMOVE_ITEM_BUTTON)
+        self.click(self.REMOVE_FROM_CART_BUTTON)
 
     def is_cart_badge_displayed(self):
         try:
