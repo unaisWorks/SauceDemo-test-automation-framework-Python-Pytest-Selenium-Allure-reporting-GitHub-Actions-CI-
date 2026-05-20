@@ -1,14 +1,29 @@
-from coverage.files import actual_path
+import allure
 
-
+@allure.feature("Inventory Page")
+@allure.title("Verify Inventory Page Loaded Successfully")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_page_title(logged_in_user):
     assert logged_in_user.get_page_title() == "Products"
 
-    def test_add_to_cart_button_enabled(logged_in_user):
-        assert logged_in_user.is_element_enabled(
-            logged_in_user.ADD_TO_CART_BUTTON
-        )
+@allure.feature("Inventory Page")
+@allure.title("Verify Inventory page URL")
+@allure.severity(allure.severity_level.CRITICAL)
+def test_page_url(logged_in_user):
+    page_url = logged_in_user.get_current_url()
+    assert "inventory" in page_url
 
+@allure.feature("Inventory Page")
+@allure.title("Verify add to cart button enabled")
+@allure.severity(allure.severity_level.MINOR)
+def test_add_to_cart_button_enabled(logged_in_user):
+    assert logged_in_user.is_element_enabled(
+        logged_in_user.ADD_TO_CART_BUTTON
+    )
+
+@allure.feature("Inventory Page")
+@allure.title("Verify item add to cart")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_add_single_item_to_cart(logged_in_user):
     before = logged_in_user.get_cart_count() if logged_in_user.is_cart_badge_displayed() else "0"
     logged_in_user.add_to_cart()
@@ -18,31 +33,49 @@ def test_add_single_item_to_cart(logged_in_user):
     cart = logged_in_user.click_cart_icon()
     assert cart.get_added_item_name() == "Sauce Labs Backpack"
 
+@allure.feature("Inventory Page")
+@allure.title("Verify item removed from cart")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_remove_item_from_cart(logged_in_user):
     logged_in_user.add_to_cart()
     logged_in_user.remove_item_from_cart()
     assert not logged_in_user.is_cart_badge_displayed()
 
+@allure.feature("Inventory Page")
+@allure.title("Verify account logged out")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_logout(logged_in_user):
     login_page = logged_in_user.logout_account()
     assert login_page.driver.title == "Swag Labs"
 
+@allure.feature("Inventory Page")
+@allure.title("Verify filter price low to high as expected")
+@allure.severity(allure.severity_level.NORMAL)
 def test_filter_price_low_to_high(logged_in_user):
     logged_in_user.sort_products("lohi")
 
     actual = logged_in_user.get_product_prices()
     assert actual == sorted(actual)
 
+@allure.feature("Inventory Page")
+@allure.title("Verify filter price high to low")
+@allure.severity(allure.severity_level.NORMAL)
 def test_filter_price_high_to_low(logged_in_user):
     logged_in_user.sort_products("hilo")
 
     actual = logged_in_user.get_product_prices()
     assert actual == sorted(actual, reverse=True)
 
+@allure.feature("Inventory Page")
+@allure.title("Verify filter alphabetic A to Z")
+@allure.severity(allure.severity_level.NORMAL)
 def test_filter_price_A_to_Z(logged_in_user):
     logged_in_user.sort_products("az")
     assert logged_in_user.get_current_sort_value() == "az"
 
+@allure.feature("Inventory Page")
+@allure.title("Verify filter alphabetic order Z to A")
+@allure.severity(allure.severity_level.NORMAL)
 def test_filter_price_Z_to_A(logged_in_user):
     logged_in_user.sort_products("za")
     assert logged_in_user.get_current_sort_value() == "za"
