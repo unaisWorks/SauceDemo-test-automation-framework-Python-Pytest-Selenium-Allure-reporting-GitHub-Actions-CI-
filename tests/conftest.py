@@ -3,6 +3,7 @@ from selenium import webdriver
 from pages.login_page import LoginPage
 from selenium.webdriver.chrome.options import Options
 from config.config import USERNAME, PASSWORD
+import allure
 
 import os
 from datetime import datetime
@@ -50,12 +51,18 @@ def pytest_runtest_makereport(item, call):
             file_path = os.path.join(SCREENSHOT_DIR, file_name)
 
             driver.save_screenshot(file_path)
-
+            print(f"Capturing screenshot for failed test: {item.name}")
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name="Failure Screenshot",
+                attachment_type=allure.attachment_type.PNG
+            )
             #Attach screenshot to report
             try:
                 import pytest_html
                 extra.append(pytest_html.extras.image(file_path))
-            except Exception:
+
+            except ImportError:
                 pass
 
             report.extra = extra
