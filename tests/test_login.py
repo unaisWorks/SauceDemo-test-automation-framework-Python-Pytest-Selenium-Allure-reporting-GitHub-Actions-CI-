@@ -1,6 +1,8 @@
 import pytest
 import allure
 
+@pytest.mark.regression
+@pytest.mark.smoke
 @allure.feature("Login")
 @allure.title("Verify Successful Login")
 @allure.severity(allure.severity_level.CRITICAL)
@@ -8,6 +10,7 @@ def test_successful_login(login_page):
     inventory = login_page.login("standard_user","secret_sauce")
     assert inventory.get_page_title() == "Products"
 
+@pytest.mark.regression
 @allure.feature("Login")
 @allure.title("Verify Login Page URL")
 @allure.severity(allure.severity_level.NORMAL)
@@ -15,6 +18,8 @@ def test_page_url(login_page):
     page_url = login_page.get_current_url()
     assert page_url == "https://www.saucedemo.com/"
 
+@pytest.mark.regression
+@pytest.mark.negative
 @pytest.mark.parametrize(
     "username,password,expected_error",
     [
@@ -46,6 +51,8 @@ def test_page_url(login_page):
 
     ],
 )
+@pytest.mark.regression
+@pytest.mark.negative
 @allure.feature("Login")
 @allure.title("Verify Invalid Login Scenarios")
 @allure.severity(allure.severity_level.MINOR)
@@ -55,6 +62,8 @@ def test_invalid_login(login_page, username, password, expected_error):
     error_message = login_page.get_error_message()
     assert error_message == expected_error
 
+@pytest.mark.regression
+@pytest.mark.negative
 @allure.feature("Login")
 @allure.title("Verify Error Message Displayed")
 @allure.severity(allure.severity_level.CRITICAL)

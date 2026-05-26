@@ -1,0 +1,189 @@
+2026-05-06 15:05:22,334 - INFO - pages.login_page - opening login page
+2026-05-06 15:05:25,133 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 15:05:25,573 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-06 15:05:27,281 - INFO - pages.login_page - opening login page
+2026-05-06 15:05:27,939 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 15:05:40,365 - INFO - pages.login_page - opening login page
+2026-05-06 15:05:41,208 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 15:05:53,397 - INFO - pages.login_page - opening login page
+2026-05-06 15:05:54,318 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 15:06:08,953 - INFO - pages.login_page - opening login page
+2026-05-06 15:06:09,547 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 15:06:21,743 - INFO - pages.login_page - opening login page
+2026-05-06 15:06:22,575 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 15:06:34,618 - INFO - pages.login_page - opening login page
+2026-05-06 15:06:35,251 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 15:06:47,452 - INFO - pages.login_page - opening login page
+2026-05-06 15:06:48,613 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:43:35,683 - INFO - pages.login_page - opening login page
+2026-05-06 17:43:36,758 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:43:37,196 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-06 17:43:38,390 - INFO - pages.login_page - opening login page
+2026-05-06 17:43:41,856 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:43:54,943 - INFO - pages.login_page - opening login page
+2026-05-06 17:43:55,950 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:44:08,622 - INFO - pages.login_page - opening login page
+2026-05-06 17:44:11,359 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:44:23,616 - INFO - pages.login_page - opening login page
+2026-05-06 17:44:24,082 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:44:37,646 - INFO - pages.login_page - opening login page
+2026-05-06 17:47:27,900 - INFO - pages.login_page - opening login page
+2026-05-06 17:47:28,826 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:47:29,200 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-06 17:47:30,443 - INFO - pages.login_page - opening login page
+2026-05-06 17:47:30,638 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:47:43,410 - INFO - pages.login_page - opening login page
+2026-05-06 17:47:44,653 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:47:56,908 - INFO - pages.login_page - opening login page
+2026-05-06 17:47:57,857 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:48:10,517 - INFO - pages.login_page - opening login page
+2026-05-06 17:48:10,749 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:48:23,652 - INFO - pages.login_page - opening login page
+2026-05-06 17:48:24,677 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:48:36,917 - INFO - pages.login_page - opening login page
+2026-05-06 17:48:37,139 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:48:50,316 - INFO - pages.login_page - opening login page
+2026-05-06 17:48:50,609 - INFO - pages.login_page - Logging in with user :standard_user
+2026-05-06 17:57:39,834 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:40,826 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-06 17:57:41,793 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:42,367 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:43,644 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:44,262 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:45,712 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:46,265 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:47,501 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:48,140 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:49,399 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:49,973 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:51,094 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:51,732 - INFO - pages.login_page - opening login page
+2026-05-06 17:57:53,050 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:49,751 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:51,382 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-12 20:18:52,884 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:53,715 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:55,333 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:55,958 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:57,338 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:58,459 - INFO - pages.login_page - opening login page
+2026-05-12 20:18:59,876 - INFO - pages.login_page - opening login page
+2026-05-12 20:19:00,046 - INFO - pages.login_page - opening login page
+2026-05-12 20:19:02,164 - INFO - pages.login_page - opening login page
+2026-05-12 20:19:02,828 - INFO - pages.login_page - opening login page
+2026-05-12 20:19:04,044 - INFO - pages.login_page - opening login page
+2026-05-12 20:19:04,841 - INFO - pages.login_page - opening login page
+2026-05-12 20:19:06,429 - INFO - pages.login_page - opening login page
+2026-05-21 15:36:58,960 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:01,113 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:37:01,214 - INFO - pages.cart_page - Fetching cart page title
+2026-05-21 15:37:03,732 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:05,085 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:37:05,182 - INFO - pages.cart_page - Navigating to Products page by clicking continue shopping button
+2026-05-21 15:37:05,276 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-21 15:37:07,242 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:09,635 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:37:09,741 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:37:09,819 - INFO - pages.cart_page - Fetching added item name to the cart
+2026-05-21 15:37:11,991 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:13,482 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:37:13,633 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:37:13,799 - INFO - pages.cart_page - Removing item from cart
+2026-05-21 15:37:13,882 - INFO - pages.cart_page - Checking if cart is empty
+2026-05-21 15:37:13,899 - INFO - pages.cart_page - Navigating to Products page by clicking continue shopping button
+2026-05-21 15:37:26,523 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:28,492 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-21 15:37:30,589 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:33,959 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:37,619 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:49,127 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:37:49,207 - INFO - pages.inventory_page - Fetching cart count
+2026-05-21 15:37:49,225 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:37:49,298 - INFO - pages.cart_page - Fetching added item name to the cart
+2026-05-21 15:37:50,649 - INFO - pages.login_page - opening login page
+2026-05-21 15:37:52,620 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:37:52,685 - INFO - pages.inventory_page - removing item from cart
+2026-05-21 15:38:04,464 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:05,716 - INFO - pages.inventory_page - logging out user
+2026-05-21 15:38:05,716 - INFO - pages.inventory_page - Opening Menu
+2026-05-21 15:38:07,387 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:08,936 - INFO - pages.inventory_page - sorting product by lohi
+2026-05-21 15:38:10,422 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:11,776 - INFO - pages.inventory_page - sorting product by hilo
+2026-05-21 15:38:13,226 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:14,403 - INFO - pages.inventory_page - sorting product by az
+2026-05-21 15:38:14,436 - INFO - pages.inventory_page - getting current sort value
+2026-05-21 15:38:16,188 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:17,704 - INFO - pages.inventory_page - sorting product by za
+2026-05-21 15:38:17,767 - INFO - pages.inventory_page - getting current sort value
+2026-05-21 15:38:18,873 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:20,595 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-21 15:38:21,974 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:24,029 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:24,892 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:26,399 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:27,441 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:28,889 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:29,168 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:31,666 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:31,943 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:33,817 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:34,774 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:37,357 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:37,951 - INFO - pages.login_page - opening login page
+2026-05-21 15:38:39,540 - INFO - pages.login_page - opening login page
+2026-05-21 15:57:32,158 - INFO - pages.login_page - opening login page
+2026-05-21 15:57:33,264 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:57:33,317 - INFO - pages.cart_page - Fetching cart page title
+2026-05-21 15:57:34,926 - INFO - pages.login_page - opening login page
+2026-05-21 15:57:36,497 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:57:36,579 - INFO - pages.cart_page - Navigating to Products page by clicking continue shopping button
+2026-05-21 15:57:36,650 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-21 15:57:38,433 - INFO - pages.login_page - opening login page
+2026-05-21 15:57:40,711 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:57:40,827 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:57:40,933 - INFO - pages.cart_page - Fetching added item name to the cart
+2026-05-21 15:57:43,240 - INFO - pages.login_page - opening login page
+2026-05-21 15:57:44,600 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:57:44,664 - INFO - pages.inventory_page -  Navigating to cart page
+2026-05-21 15:57:44,713 - INFO - pages.cart_page - Removing item from cart
+2026-05-21 15:57:44,754 - INFO - pages.cart_page - Checking if cart is empty
+2026-05-21 15:57:44,761 - INFO - pages.cart_page - Navigating to Products page by clicking continue shopping button
+2026-05-21 15:57:58,082 - INFO - pages.login_page - opening login page
+2026-05-21 15:57:59,465 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-21 15:58:00,724 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:02,642 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:04,642 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:15,913 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:58:28,819 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:29,925 - INFO - pages.inventory_page - Adding item to cart
+2026-05-21 15:58:29,989 - INFO - pages.inventory_page - removing item from cart
+2026-05-21 15:58:41,898 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:43,478 - INFO - pages.inventory_page - logging out user
+2026-05-21 15:58:43,479 - INFO - pages.inventory_page - Opening Menu
+2026-05-21 15:58:45,335 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:46,324 - INFO - pages.inventory_page - sorting product by lohi
+2026-05-21 15:58:47,294 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:48,365 - INFO - pages.inventory_page - sorting product by hilo
+2026-05-21 15:58:49,602 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:50,642 - INFO - pages.inventory_page - sorting product by az
+2026-05-21 15:58:50,675 - INFO - pages.inventory_page - getting current sort value
+2026-05-21 15:58:51,622 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:52,578 - INFO - pages.inventory_page - sorting product by za
+2026-05-21 15:58:52,641 - INFO - pages.inventory_page - getting current sort value
+2026-05-21 15:58:53,767 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:54,714 - INFO - pages.inventory_page - Fetching inventory page title
+2026-05-21 15:58:56,196 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:58,261 - INFO - pages.login_page - opening login page
+2026-05-21 15:58:58,594 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:00,676 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:01,236 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:02,540 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:03,137 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:04,572 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:05,267 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:06,480 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:07,285 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:08,482 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:09,209 - INFO - pages.login_page - opening login page
+2026-05-21 15:59:10,511 - INFO - pages.login_page - opening login page

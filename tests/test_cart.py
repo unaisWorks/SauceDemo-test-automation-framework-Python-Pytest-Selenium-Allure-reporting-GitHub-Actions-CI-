@@ -1,5 +1,8 @@
 import allure
+import pytest
 
+
+@pytest.mark.regression
 @allure.feature("Cart")
 @allure.title("Verify Cart Page Loaded Successfully")
 @allure.severity(allure.severity_level.CRITICAL)
@@ -7,6 +10,7 @@ def test_verify_cart_page_loaded(logged_in_user):
     cart = logged_in_user.click_cart_icon()
     assert  cart.get_page_title() == "Your Cart"
 
+@pytest.mark.regression
 @allure.feature("Cart")
 @allure.title("Verify continue shopping button works")
 @allure.severity(allure.severity_level.NORMAL)
@@ -15,7 +19,7 @@ def test_continue_shopping_button(logged_in_user):
     inventory = cart.continue_shopping()
     assert inventory.get_page_title() == "Products"
 
-
+@pytest.mark.regression
 @allure.feature("Cart")
 @allure.title("Verify Item Displayed in Cart")
 @allure.severity(allure.severity_level.CRITICAL)
@@ -25,7 +29,8 @@ def test_item_appears_in_cart(logged_in_user):
 
     assert cart.get_added_item_name() == "Sauce Labs Backpack"
 
-
+@pytest.mark.smoke
+@pytest.mark.regression
 @allure.feature("Cart")
 @allure.title("Verify item removed from cart")
 @allure.severity(allure.severity_level.CRITICAL)

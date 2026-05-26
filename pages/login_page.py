@@ -4,6 +4,7 @@ from utils.logger import get_logger
 from config.config import BASE_URL
 from selenium.webdriver.support import expected_conditions as EC
 
+
 logger = get_logger(__name__)
 class LoginPage(BasePage):
 

@@ -1,0 +1,2 @@
+[32mINFO    [0m pages.login_page:login_page.py:17 opening login page
+[32mINFO    [0m pages.login_page:login_page.py:17 opening login page
