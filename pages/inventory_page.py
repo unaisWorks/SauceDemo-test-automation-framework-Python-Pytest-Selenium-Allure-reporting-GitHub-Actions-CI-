@@ -31,8 +31,10 @@ class InventoryPage(BasePage):
 
     def add_to_cart(self):
         logger.info("Adding item to cart")
-        self.click(self.ADD_TO_CART_BUTTON)
-        self.wait.until(EC.presence_of_element_located(self.CART_COUNT_BADGE))
+        self.click(self.ADD_CART_BUTTON)
+        self.wait.until(
+            EC.visibility_of_element_located(self.CART_COUNT_BADGE)
+        )
 
     def get_cart_count(self):
         logger.info("Fetching cart count")
@@ -43,7 +45,7 @@ class InventoryPage(BasePage):
 
     def remove_item_from_cart(self):
         logger.info("removing item from cart")
-        self.click(self.REMOVE_FROM_CART_BUTTON)
+        self.click(self.x_BUTTON)
 
     def is_cart_badge_displayed(self):
         try:
