@@ -9,7 +9,6 @@ import os
 from datetime import datetime
 
 @pytest.fixture(scope="function")
-@pytest.fixture(scope="function")
 def driver():
     options = Options()
 
