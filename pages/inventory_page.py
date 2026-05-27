@@ -31,7 +31,7 @@ class InventoryPage(BasePage):
 
     def add_to_cart(self):
         logger.info("Adding item to cart")
-        self.click(self.ADD_CART_BUTTON)
+        self.click(self.ADD_TO_CART_BUTTON)
         self.wait.until(
             EC.visibility_of_element_located(self.CART_COUNT_BADGE)
         )
