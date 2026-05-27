@@ -45,7 +45,7 @@ class InventoryPage(BasePage):
 
     def remove_item_from_cart(self):
         logger.info("removing item from cart")
-        self.click(self.x_BUTTON)
+        self.click(self.ADD_TO_CART_BUTTON)
 
     def is_cart_badge_displayed(self):
         try:
