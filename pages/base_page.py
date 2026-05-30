@@ -26,7 +26,10 @@ class BasePage:
         self.wait.until(EC.invisibility_of_element_located(locator))
 
     def click(self, locator):
-        self.wait.until(EC.element_to_be_clickable(locator)).click()
+        element = self.wait.until(
+            EC.element_to_be_clickable(locator)
+        )
+        element.click()
 
     def enter_text(self, locator, text):
         element = self.find_element(locator)
