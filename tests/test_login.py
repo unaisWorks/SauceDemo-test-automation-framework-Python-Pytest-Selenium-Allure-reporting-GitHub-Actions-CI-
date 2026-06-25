@@ -1,5 +1,7 @@
 import pytest
 import allure
+from config.config import USERNAME, PASSWORD
+
 
 @pytest.mark.regression
 @pytest.mark.smoke
@@ -7,8 +9,9 @@ import allure
 @allure.title("Verify Successful Login")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_successful_login(login_page):
-    inventory = login_page.login("standard_user","secret_sauce")
-    assert inventory.get_page_title() == "Products"
+    inventory = login_page.login(USERNAME,PASSWORD)
+    title = inventory.get_page_title()
+    assert title == "Products"
 
 @pytest.mark.regression
 @allure.feature("Login")
@@ -57,8 +60,8 @@ def test_page_url(login_page):
 @allure.title("Verify Invalid Login Scenarios")
 @allure.severity(allure.severity_level.MINOR)
 def test_invalid_login(login_page, username, password, expected_error):
-    login_page.open()   # ✅ RESET PAGE EVERY ITERATION
-    login_page.login(username, password)
+    login_page.open()
+    login_page.attempt_login(username, password)
     error_message = login_page.get_error_message()
     assert error_message == expected_error
 
@@ -68,6 +71,6 @@ def test_invalid_login(login_page, username, password, expected_error):
 @allure.title("Verify Error Message Displayed")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_find_error_message_element(login_page):
-    login_page.login("locked_out_user", "secret_sauce")
+    login_page.attempt_login("locked_out_user", "secret_sauce")
     element = login_page.find_element(login_page.ERROR_SECTION)
     assert element.is_displayed()

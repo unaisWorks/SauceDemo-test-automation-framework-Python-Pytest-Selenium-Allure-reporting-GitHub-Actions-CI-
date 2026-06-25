@@ -13,21 +13,32 @@ class LoginPage(BasePage):
     PASSWORD_FIELD = (By.ID, "password")
     LOGIN_BUTTON = (By.ID, "login-button")
     ERROR_SECTION = (By.CSS_SELECTOR, "h3[data-test='error']")
+    PAGE_TITLE = (By.CLASS_NAME, "login_logo")
 
     def open(self):
         logger.info("opening login page")
         self.driver.get(BASE_URL)
 
-    def login(self, username, password):
+    def _fill_credentials(self,username, password):
+
         self.clear_field(self.USER_NAME_FIELD)
         self.clear_field(self.PASSWORD_FIELD)
-
         self.enter_text(self.USER_NAME_FIELD, username)
         self.enter_text(self.PASSWORD_FIELD, password)
         self.click(self.LOGIN_BUTTON)
 
+    def login(self, username, password):
+        logger.info(f"Logging in as {username}")
+        self._fill_credentials(username, password)
         from pages.inventory_page import InventoryPage
-        return InventoryPage(self.driver)
+        inventory = InventoryPage(self.driver)
+        inventory.wait_for_visibility(inventory.PAGE_TITLE)
+        return inventory
+
+    def attempt_login(self, username, password):
+        logger.info(f"Logging in as {username}")
+        self._fill_credentials(username,password)
+        return self
 
     def get_error_message(self):
         element = self.wait.until(

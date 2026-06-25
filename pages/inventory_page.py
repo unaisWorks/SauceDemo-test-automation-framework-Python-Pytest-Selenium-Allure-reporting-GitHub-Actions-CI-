@@ -10,48 +10,16 @@ logger = get_logger(__name__)
 
 
 class InventoryPage(BasePage):
-
-    PAGE_TITLE = (By.CLASS_NAME, "title")
-
-    ADD_TO_CART_BUTTON = (
-        By.ID,
-        "add-to-cart-sauce-labs-backpack"
-    )
-
-    REMOVE_FROM_CART_BUTTON = (
-        By.ID,
-        "remove-sauce-labs-backpack"
-    )
-
-    CART_ICON = (
-        By.CSS_SELECTOR,
-        "a.shopping_cart_link"
-    )
-
-    CART_COUNT_BADGE = (
-        By.CSS_SELECTOR,
-        "span.shopping_cart_badge"
-    )
-
-    MENU_ICON = (
-        By.ID,
-        "react-burger-menu-btn"
-    )
-
-    LOGOUT_LINK = (
-        By.ID,
-        "logout_sidebar_link"
-    )
-
-    SORT_DROPDOWN = (
-        By.CSS_SELECTOR,
-        "select.product_sort_container"
-    )
-
-    PRODUCT_PRICES = (
-        By.CLASS_NAME,
-        "inventory_item_price"
-    )
+    #Locators
+    PAGE_TITLE = (By.CSS_SELECTOR, '[data-test="title"]')
+    ADD_TO_CART_BUTTON = (By.ID,"add-to-cart-sauce-labs-backpack")
+    REMOVE_FROM_CART_BUTTON = (By.ID,"remove-sauce-labs-backpack")
+    CART_ICON = (By.CSS_SELECTOR,"a.shopping_cart_link")
+    CART_COUNT_BADGE = (By.CSS_SELECTOR,"span.shopping_cart_badge")
+    MENU_ICON = (By.ID,"react-burger-menu-btn")
+    LOGOUT_LINK = (By.ID,"logout_sidebar_link")
+    SORT_DROPDOWN = (By.CSS_SELECTOR,"select.product_sort_container")
+    PRODUCT_PRICES = (By.CLASS_NAME,"inventory_item_price")
 
     def get_page_title(self):
         logger.info("Fetching inventory page title")
