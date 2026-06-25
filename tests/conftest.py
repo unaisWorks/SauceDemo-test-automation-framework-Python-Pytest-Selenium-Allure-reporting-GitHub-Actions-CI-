@@ -6,44 +6,51 @@ import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
-from config.config import USERNAME, PASSWORD
+from config.config import USERNAME,PASSWORD,BROWSER
 from pages.login_page import LoginPage
 
 
 @pytest.fixture(scope="function")
 def driver():
-
+    browser = BROWSER.lower()
     options = Options()
 
-    temp_profile = tempfile.mkdtemp()
-    options.add_argument(f"--user-data-dir={temp_profile}")
+    if browser == "chrome":
+        options = Options()
+        options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")
 
-    if os.getenv("CI"):
-        options.add_argument("--headless=new")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument("--disable-notifications")
-    options.add_argument("--incognito")
+        if os.getenv("CI"):
+            options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--disable-notifications")
+        options.add_argument("--incognito")
 
     # Disable Chrome password manager & breach detection popup
-    options.add_argument("--disable-features=PasswordLeakDetection")
+        options.add_argument("--disable-features=PasswordLeakDetection")
 
-    prefs = {
-        "credentials_enable_service": False,
-        "profile.password_manager_enabled": False,
-        "profile.password_manager_leak_detection": False,
-        "profile.default_content_setting_values.notifications": 2
-    }
+        prefs = {
+            "credentials_enable_service": False,
+            "profile.password_manager_enabled": False,
+            "profile.password_manager_leak_detection": False,
+            "profile.default_content_setting_values.notifications": 2
+        }
+        options.add_experimental_option("prefs", prefs)
+        driver = webdriver.Chrome(options=options)
+    elif browser == "firefox":
+        options = FirefoxOptions()
+        if os.getenv("CI"):
+            options.add_argument("--headless")
+        driver = webdriver.Firefox(options=options)
 
-    options.add_experimental_option("prefs", prefs)
+    else:
+        raise ValueError(f"Unsupported browser in config: '{BROWSER}'")
 
-    driver = webdriver.Chrome(options=options)
     driver.set_page_load_timeout(30)
-
     yield driver
-
     driver.quit()
 
 
