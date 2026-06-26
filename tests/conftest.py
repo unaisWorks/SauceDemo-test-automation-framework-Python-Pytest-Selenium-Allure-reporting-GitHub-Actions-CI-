@@ -53,6 +53,12 @@ def driver():
     yield driver
     driver.quit()
 
+@pytest.fixture
+def item_in_cart(logged_in_user):
+    if logged_in_user.is_cart_badge_displayed():
+        logged_in_user.remove_item_from_cart()
+    logged_in_user.add_to_cart()
+    return logged_in_user
 
 @pytest.fixture(scope="function")
 def login_page(driver):
