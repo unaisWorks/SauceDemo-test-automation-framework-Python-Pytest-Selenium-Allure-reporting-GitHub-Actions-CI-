@@ -23,10 +23,8 @@ def test_continue_shopping_button(logged_in_user):
 @allure.feature("Cart")
 @allure.title("Verify Item Displayed in Cart")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_item_appears_in_cart(logged_in_user):
-    logged_in_user.add_to_cart()
-    cart = logged_in_user.click_cart_icon()
-
+def test_item_appears_in_cart(item_in_cart):
+    cart = item_in_cart.click_cart_icon()
     assert cart.get_added_item_name() == "Sauce Labs Backpack"
 
 @pytest.mark.smoke

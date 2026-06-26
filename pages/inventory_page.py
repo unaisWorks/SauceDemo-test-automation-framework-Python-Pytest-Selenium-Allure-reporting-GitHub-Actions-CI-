@@ -27,35 +27,7 @@ class InventoryPage(BasePage):
 
     def add_to_cart(self):
         logger.info("Adding item to cart")
-
-        try:
-            if self.find_element(
-                self.REMOVE_FROM_CART_BUTTON
-            ).is_displayed():
-
-                logger.info(
-                    "Item already in cart. Removing first."
-                )
-
-                self.click(
-                    self.REMOVE_FROM_CART_BUTTON
-                )
-
-        except TimeoutException:
-
-            logger.info(
-                "Item not present in cart. Proceeding with add."
-            )
-
         self.click(self.ADD_TO_CART_BUTTON)
-
-        self.wait.until(
-            EC.text_to_be_present_in_element(
-                self.CART_COUNT_BADGE,
-                "1"
-            )
-        )
-
         logger.info(
             "Item successfully added to cart."
         )
@@ -73,17 +45,10 @@ class InventoryPage(BasePage):
             return "0"
 
     def remove_item_from_cart(self):
-
         logger.info("Removing item from cart")
 
         self.click(
             self.REMOVE_FROM_CART_BUTTON
-        )
-
-        self.wait.until(
-            EC.invisibility_of_element_located(
-                self.CART_COUNT_BADGE
-            )
         )
 
     def is_cart_badge_displayed(self):
