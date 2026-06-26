@@ -1,5 +1,6 @@
 import allure
 import pytest
+from data.products import BACKPACK
 
 
 @pytest.mark.regression
@@ -25,15 +26,15 @@ def test_continue_shopping_button(logged_in_user):
 @allure.severity(allure.severity_level.CRITICAL)
 def test_item_appears_in_cart(item_in_cart):
     cart = item_in_cart.click_cart_icon()
-    assert cart.get_added_item_name() == "Sauce Labs Backpack"
+    assert cart.get_added_item_name() == BACKPACK
 
 @pytest.mark.smoke
 @pytest.mark.regression
 @allure.feature("Cart")
 @allure.title("Verify item removed from cart")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_item_remove_from_cart(logged_in_user):
-    logged_in_user.add_to_cart()
+def test_remove_button_on_cart(logged_in_user):
+    logged_in_user.add_to_cart(BACKPACK)
     cart = logged_in_user.click_cart_icon()
 
     cart.remove_item_from_cart()

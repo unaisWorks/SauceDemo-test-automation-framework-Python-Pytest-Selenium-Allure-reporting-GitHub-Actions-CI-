@@ -42,7 +42,7 @@ def test_add_single_item_to_cart(logged_in_user):
 @allure.feature("Inventory Page")
 @allure.title("Verify item removed from cart")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_remove_item_from_cart(logged_in_user):
+def test_remove_button_on_inventory(logged_in_user):
     logged_in_user.add_to_cart(BACKPACK)
     logged_in_user.remove_item_from_cart(BACKPACK)
     assert not logged_in_user.is_cart_badge_displayed()
