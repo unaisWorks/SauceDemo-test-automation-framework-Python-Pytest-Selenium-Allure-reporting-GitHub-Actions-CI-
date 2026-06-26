@@ -25,9 +25,17 @@ class InventoryPage(BasePage):
         logger.info("Fetching inventory page title")
         return self.get_text(self.PAGE_TITLE)
 
-    def add_to_cart(self):
+    def get_add_to_cart_button(self, product):
+        slug = product.lower().replace(" " , "-")
+        return (By.ID, f"add-to-cart-" + slug)
+
+    def get_remove_product_button(self, product):
+        slug = product.lower().replace(" ", "-")
+        return (By.ID, f"remove-" + slug)
+
+    def add_to_cart(self, product):
         logger.info("Adding item to cart")
-        self.click(self.ADD_TO_CART_BUTTON)
+        self.click(self.get_add_to_cart_button(product))
         logger.info(
             "Item successfully added to cart."
         )
@@ -44,12 +52,11 @@ class InventoryPage(BasePage):
         except TimeoutException:
             return "0"
 
-    def remove_item_from_cart(self):
+    def remove_item_from_cart(self, product):
         logger.info("Removing item from cart")
 
-        self.click(
-            self.REMOVE_FROM_CART_BUTTON
-        )
+        self.click(self.get_remove_product_button(product))
+
 
     def is_cart_badge_displayed(self):
 
