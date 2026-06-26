@@ -81,7 +81,8 @@ def test_filter_price_high_to_low(logged_in_user):
 @allure.severity(allure.severity_level.NORMAL)
 def test_filter_price_A_to_Z(logged_in_user):
     logged_in_user.sort_products("az")
-    assert logged_in_user.get_current_sort_value() == "az"
+    actual = logged_in_user.get_product_names()
+    assert actual == sorted(actual)
 
 @pytest.mark.regression
 @allure.feature("Inventory Page")
@@ -89,5 +90,6 @@ def test_filter_price_A_to_Z(logged_in_user):
 @allure.severity(allure.severity_level.NORMAL)
 def test_filter_price_Z_to_A(logged_in_user):
     logged_in_user.sort_products("za")
-    assert logged_in_user.get_current_sort_value() == "za"
+    actual = logged_in_user.get_product_names()
+    assert actual == sorted(actual, reverse=True)
 

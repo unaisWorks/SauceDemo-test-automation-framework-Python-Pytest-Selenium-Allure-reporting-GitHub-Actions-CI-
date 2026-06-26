@@ -20,6 +20,8 @@ class InventoryPage(BasePage):
     LOGOUT_LINK = (By.ID,"logout_sidebar_link")
     SORT_DROPDOWN = (By.CSS_SELECTOR,"select.product_sort_container")
     PRODUCT_PRICES = (By.CLASS_NAME,"inventory_item_price")
+    PRODUCT_NAMES = (By.CSS_SELECTOR, '[data-test="inventory-item-name"]')
+
 
     def get_page_title(self):
         logger.info("Fetching inventory page title")
@@ -148,3 +150,8 @@ class InventoryPage(BasePage):
             )
             for price in prices
         ]
+
+    def get_product_names(self):
+        product_names = self.find_elements(self.PRODUCT_NAMES)
+
+        return [product.text for product in product_names]
