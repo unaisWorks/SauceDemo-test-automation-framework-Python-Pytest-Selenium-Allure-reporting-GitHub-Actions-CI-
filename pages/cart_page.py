@@ -42,7 +42,7 @@ class CartPage(BasePage):
             "Fetching all item names in cart"
         )
 
-        elements = self.driver.find_elements(
+        elements = self.find_elements(
             *self.CART_ITEM
         )
 
@@ -94,7 +94,7 @@ class CartPage(BasePage):
             "Checking if cart is empty"
         )
 
-        elements = self.driver.find_elements(
+        elements = self.find_elements(
             *self.CART_ITEM
         )
 

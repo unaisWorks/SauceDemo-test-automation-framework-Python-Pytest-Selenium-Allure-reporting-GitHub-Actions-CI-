@@ -1,7 +1,7 @@
 
 #User Address
-FIRST_NAME = "Sam"
-LAST_NAME = "Alex"
-ZIP_CODE = "123456"
+first_name = "Sam"
+last_name = "Alex"
+zip_code = "123456"
 
 
