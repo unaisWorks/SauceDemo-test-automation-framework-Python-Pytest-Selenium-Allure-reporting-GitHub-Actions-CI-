@@ -9,10 +9,9 @@ def get_logger(name):
     logger.setLevel(logging.INFO)
 
     if not logger.handlers:
-        # create logs folder
-        os.makedirs("reports/logs", exist_ok=True)
+        os.makedirs(LOG_DIR, exist_ok=True)
 
-        file_handler = logging.FileHandler("reports/logs/test.log")
+        file_handler = logging.FileHandler(os.path.join(LOG_DIR, "test.log"))
         formatter = logging.Formatter(
             "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
         )

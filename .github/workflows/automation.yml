@@ -29,6 +29,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Run Pytest Tests
+        env:
+          SAUCEDEMO_USERNAME: ${{ secrets.SAUCEDEMO_USERNAME }}
+          SAUCEDEMO_PASSWORD: ${{ secrets.SAUCEDEMO_PASSWORD }}
+        run: pytest -v
+
       - name: Upload Allure Results
         if: always()
         uses: actions/upload-artifact@v4
