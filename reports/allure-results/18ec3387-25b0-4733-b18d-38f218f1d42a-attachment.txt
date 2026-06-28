@@ -1,6 +1,0 @@
-[32mINFO    [0m pages.login_page:login_page.py:17 opening login page
-[32mINFO    [0m pages.inventory_page:inventory_page.py:33 Adding item to cart
-[32mINFO    [0m pages.inventory_page:inventory_page.py:55  Navigating to cart page
-[32mINFO    [0m pages.cart_page:cart_page.py:30 Removing item from cart
-[32mINFO    [0m pages.cart_page:cart_page.py:43 Checking if cart is empty
-[32mINFO    [0m pages.cart_page:cart_page.py:37 Navigating to Products page by clicking continue shopping button

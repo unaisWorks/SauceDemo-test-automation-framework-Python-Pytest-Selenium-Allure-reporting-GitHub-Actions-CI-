@@ -1,4 +1,0 @@
-[32mINFO    [0m pages.login_page:login_page.py:17 opening login page
-[32mINFO    [0m pages.inventory_page:inventory_page.py:33 Adding item to cart
-[32mINFO    [0m pages.inventory_page:inventory_page.py:55  Navigating to cart page
-[32mINFO    [0m pages.cart_page:cart_page.py:21 Fetching added item name to the cart
