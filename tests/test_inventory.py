@@ -79,7 +79,7 @@ def test_filter_price_high_to_low(logged_in_user):
 @allure.feature("Inventory Page")
 @allure.title("Verify filter alphabetic A to Z")
 @allure.severity(allure.severity_level.NORMAL)
-def test_filter_price_A_to_Z(logged_in_user):
+def test_filter_name_A_to_Z(logged_in_user):
     logged_in_user.sort_products("az")
     actual = logged_in_user.get_product_names()
     assert actual == sorted(actual)
@@ -88,7 +88,7 @@ def test_filter_price_A_to_Z(logged_in_user):
 @allure.feature("Inventory Page")
 @allure.title("Verify filter alphabetic order Z to A")
 @allure.severity(allure.severity_level.NORMAL)
-def test_filter_price_Z_to_A(logged_in_user):
+def test_filter_name_Z_to_A(logged_in_user):
     logged_in_user.sort_products("za")
     actual = logged_in_user.get_product_names()
     assert actual == sorted(actual, reverse=True)
