@@ -1,141 +1,159 @@
-# 🚀 Selenium Pytest Automation Framework
+# Selenium Python Automation Framework
 
-## 📌 Overview
+A UI test automation framework for [SauceDemo](https://www.saucedemo.com/) built with Selenium, Pytest, and Allure — following the Page Object Model design pattern.
 
-This project is a **UI automation testing framework** built using **Selenium, Python, and Pytest** following the **Page Object Model (POM)** design pattern.
-
-It demonstrates a scalable and maintainable automation structure with features like reusable fixtures, parametrized tests, HTML reporting, and automatic screenshot capture on failures.
+![CI](https://github.com/unaisLearning/selenium-python-framework/actions/workflows/automation.yml/badge.svg)
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-* Python
-* Selenium WebDriver
-* Pytest
-* pytest-html
+| Tool | Purpose |
+|---|---|
+| Python 3.11 | Language |
+| Selenium 4 | Browser automation |
+| Pytest | Test runner |
+| Allure | Test reporting |
+| pytest-html | HTML report |
+| GitHub Actions | CI/CD |
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-Python_Automation_template/
-│
-├── pages/                # Page Object Models
-│   ├── base_page.py
+selenium-python-framework/
+├── .github/
+│   └── workflows/
+│       └── automation.yml       # CI pipeline
+├── config/
+│   └── config.py                # Base URL, timeout, browser, credentials
+├── data/
+│   ├── products.py              # Product name constants
+│   └── address.py               # Checkout address constants
+├── pages/
+│   ├── base_page.py             # Shared wait/interaction methods
 │   ├── login_page.py
 │   ├── inventory_page.py
-│   └── cart_page.py
-│
-├── tests/                # Test files
-│   ├── conftest.py
+│   ├── cart_page.py
+│   ├── checkout_address_page.py
+│   ├── checkout_overview_page.py
+│   └── checkout_success_page.py
+├── tests/
+│   ├── conftest.py              # Driver fixture, logged-in fixture, screenshot hook
 │   ├── test_login.py
 │   ├── test_inventory.py
-│   └── test_cart.py
-│
-├── reports/              # Test reports & screenshots
-│   ├── report.html
-│   └── screenshots/
-│
-├── requirements.txt
-└── README.md
+│   ├── test_cart.py
+│   ├── test_checkout_address_page.py
+│   ├── test_checkout_overview_page.py
+│   └── test_checkout_success_page.py
+├── utils/
+│   └── logger.py                # Structured file logger
+├── reports/                     # Generated artifacts (gitignored)
+├── requirements.in              # Direct dependencies
+├── requirements.txt             # Pinned lockfile (pip-compile)
+└── pytest.ini
 ```
 
 ---
 
-## ⚙️ Features
+## Features
 
-✔ Page Object Model (POM)
-✔ Pytest Fixtures for setup/teardown
-✔ Parametrized tests (`@pytest.mark.parametrize`)
-✔ HTML test reports
-✔ Automatic screenshot capture on test failure
-✔ Screenshots embedded in HTML report
-✔ Clean and maintainable structure
+- **Page Object Model** — each page is a class; tests never touch locators directly
+- **BasePage** — centralised explicit waits, click, enter_text, get_text via `WebDriverWait`
+- **Dynamic locators** — product buttons built from name slugs, no hardcoded IDs per product
+- **Fixture chaining** — `driver` → `login_page` → `logged_in_user` → `item_in_cart`
+- **Parametrized negative tests** — 6 invalid login scenarios in one test
+- **Allure reporting** — feature, title, severity decorators on every test
+- **Screenshot on failure** — captured automatically, attached to Allure and HTML report
+- **Structured logging** — per-module loggers writing to `reports/logs/test.log`
+- **Cross-browser** — Chrome and Firefox supported via `BROWSER` env var
+- **CI/CD** — GitHub Actions runs the full suite headless on every push
 
 ---
 
-## ▶️ How to Run Tests
+## Setup
 
-### 1. Install dependencies
+**1. Clone the repo**
+
+```bash
+git clone https://github.com/unaisLearning/selenium-python-framework.git
+cd selenium-python-framework
+```
+
+**2. Create and activate a virtual environment**
+
+```bash
+python3.11 -m venv venv
+source venv/bin/activate
+```
+
+**3. Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Run tests with HTML report
+---
+
+## Running Tests
+
+**Run all tests**
 
 ```bash
-pytest -v --html=reports/report.html --self-contained-html
+pytest -v
+```
+
+**Run by marker**
+
+```bash
+pytest -v -m smoke
+pytest -v -m regression
+pytest -v -m negative
+```
+
+**Run a specific test file**
+
+```bash
+pytest tests/test_login.py -v
+```
+
+**Run with a different browser**
+
+```bash
+BROWSER=firefox pytest -v
 ```
 
 ---
 
-## 📸 Reporting & Screenshots
+## Allure Report
 
-* HTML report is generated at:
+Allure results are written to `reports/allure-results` automatically (configured in `pytest.ini`).
 
-```
-reports/report.html
-```
+To view the report locally:
 
-* Screenshots are captured automatically on failure:
-
-```
-reports/screenshots/
+```bash
+allure serve reports/allure-results
 ```
 
-* Failed test screenshots are embedded inside the HTML report for easy debugging.
+---
+
+## Environment Variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `SAUCEDEMO_USERNAME` | `standard_user` | Login username |
+| `SAUCEDEMO_PASSWORD` | `secret_sauce` | Login password |
+| `BROWSER` | `chrome` | Browser to run (`chrome` or `firefox`) |
+| `CI` | unset | Set to `true` to enable headless mode |
 
 ---
 
-## 🧪 Test Coverage
+## Test Coverage
 
-### 🔐 Login Tests
-
-* Valid login
-* Invalid username/password
-* Empty fields
-* Locked user
-
-### 🛒 Inventory Tests
-
-* Add item to cart
-* Remove item from cart
-* Cart badge validation
-* Product sorting
-
-### 🧺 Cart Tests
-
-* Cart page validation
-* Continue shopping flow
-* Item presence in cart
-* Remove item from cart
-
----
-
-## 💡 Key Concepts Demonstrated
-
-* Page Object Model (POM)
-* Fixture dependency chaining
-* Data-driven testing with Pytest
-* Explicit waits for stability
-* Clean test design & reusability
-
----
-
-## 🚀 Future Improvements
-
-* Logging integration
-* Cross-browser testing
-* CI/CD integration (GitHub Actions)
-* API testing integration
-
----
-
-## 👨‍💻 Author
-
-Automation framework developed as part of learning and building a professional QA portfolio.
-
----
+| Area | Tests |
+|---|---|
+| Login | Valid login, 6 invalid scenarios (wrong credentials, empty fields, locked user) |
+| Inventory | Page load, add to cart, remove from cart, cart badge, 4 sort filters |
+| Cart | Page load, item presence, remove item, continue shopping |
+| Checkout | Address form, overview data, order completion |
