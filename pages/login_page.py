@@ -20,9 +20,6 @@ class LoginPage(BasePage):
         self.driver.get(BASE_URL)
 
     def _fill_credentials(self,username, password):
-
-        self.clear_field(self.USER_NAME_FIELD)
-        self.clear_field(self.PASSWORD_FIELD)
         self.enter_text(self.USER_NAME_FIELD, username)
         self.enter_text(self.PASSWORD_FIELD, password)
         self.click(self.LOGIN_BUTTON)

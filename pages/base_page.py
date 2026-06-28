@@ -49,8 +49,5 @@ class BasePage:
         elements = self.find_elements(locator)
         return [el.text for el in elements]
 
-    def clear_field(self, locator):
-        self.find_element(locator).clear()
-
     def is_element_enabled(self, locator):
         return self.find_element(locator).is_enabled()
