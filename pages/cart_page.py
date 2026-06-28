@@ -2,32 +2,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
+from pages.checkout_address_page import CheckoutAddressPage
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
 
 class CartPage(BasePage):
-
-    PAGE_TITLE = (
-        By.CLASS_NAME,
-        "title"
-    )
-
-    CONTINUE_SHOPPING_BUTTON = (
-        By.ID,
-        "continue-shopping"
-    )
-
-    CART_ITEM = (
-        By.CSS_SELECTOR,
-        "div.inventory_item_name"
-    )
-
-    REMOVE_ITEM_BUTTON = (
-        By.CSS_SELECTOR,
-        "button[id^='remove-']"
-    )
+    #Locators
+    PAGE_TITLE = (By.CLASS_NAME,"title")
+    CONTINUE_SHOPPING_BUTTON = (By.ID,"continue-shopping")
+    CART_ITEM = (By.CSS_SELECTOR,"div.inventory_item_name")
+    REMOVE_ITEM_BUTTON = (By.CSS_SELECTOR,"button[id^='remove-']")
+    CHECKOUT = (By.ID, "checkout")
 
     def get_page_title(self):
 
@@ -112,3 +99,9 @@ class CartPage(BasePage):
         )
 
         return len(elements) == 0
+
+    def checkout(self):
+        logger.info("Checking out and move to address page")
+        self.click(self.CHECKOUT)
+        return CheckoutAddressPage(self.driver)
+

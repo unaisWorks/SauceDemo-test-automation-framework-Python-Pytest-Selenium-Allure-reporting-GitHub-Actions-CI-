@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 from config.config import USERNAME,PASSWORD,BROWSER
+from data.products import BACKPACK
 from pages.login_page import LoginPage
 
 
@@ -56,8 +57,8 @@ def driver():
 @pytest.fixture
 def item_in_cart(logged_in_user):
     if logged_in_user.is_cart_badge_displayed():
-        logged_in_user.remove_item_from_cart()
-    logged_in_user.add_to_cart()
+        logged_in_user.remove_item_from_cart(BACKPACK)
+    logged_in_user.add_to_cart(BACKPACK)
     return logged_in_user
 
 @pytest.fixture(scope="function")
@@ -70,7 +71,6 @@ def login_page(driver):
 @pytest.fixture
 def logged_in_user(login_page):
     return login_page.login(USERNAME, PASSWORD)
-
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
