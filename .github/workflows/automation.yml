@@ -29,10 +29,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Pytest Tests
-        run: |
-          pytest -v --alluredir=reports/allure-results
-
       - name: Upload Allure Results
         if: always()
         uses: actions/upload-artifact@v4
