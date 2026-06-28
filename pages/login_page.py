@@ -32,7 +32,7 @@ class LoginPage(BasePage):
         self._fill_credentials(username, password)
         from pages.inventory_page import InventoryPage
         inventory = InventoryPage(self.driver)
-        inventory.wait_for_visibility(inventory.PAGE_TITLE)
+        inventory.find_element(inventory.PAGE_TITLE)
         return inventory
 
     def attempt_login(self, username, password):

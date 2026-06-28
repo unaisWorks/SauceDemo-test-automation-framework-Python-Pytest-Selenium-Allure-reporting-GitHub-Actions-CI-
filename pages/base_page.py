@@ -40,11 +40,6 @@ class BasePage:
     def get_text(self, locator):
         return self.driver.find_element(*locator).text
 
-    def wait_for_visibility(self, locator):
-        return self.wait.until(
-            EC.visibility_of_element_located(locator)
-        )
-
     def wait_for_clickable(self, locator):
         return self.wait.until(
             EC.element_to_be_clickable(locator)
