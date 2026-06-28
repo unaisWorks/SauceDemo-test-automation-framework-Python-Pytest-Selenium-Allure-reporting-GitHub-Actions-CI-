@@ -38,7 +38,7 @@ class BasePage:
         element.send_keys(text)
 
     def get_text(self, locator):
-        return self.driver.find_element(*locator).text
+        return self.find_element(locator).text
 
     def wait_for_clickable(self, locator):
         return self.wait.until(
