@@ -97,8 +97,7 @@ class CartPage(BasePage):
         elements = self.find_elements(
             *self.CART_ITEM
         )
-
-        return len(elements) == 0
+        return elements.count == 0
 
     def checkout(self):
         logger.info("Checking out and move to address page")

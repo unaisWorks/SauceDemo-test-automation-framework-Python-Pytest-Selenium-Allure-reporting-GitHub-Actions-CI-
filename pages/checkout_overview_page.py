@@ -26,6 +26,7 @@ class CheckoutOverviewPage(BasePage):
         products  = self.find_elements(self.PRODUCTS_NAME)
 
         return [product.text for product in products]
+
     def cancel_order(self):
         self.click(self.CANCEL_BUTTON)
         return InventoryPage(self.driver)
